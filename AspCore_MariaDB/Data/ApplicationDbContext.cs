@@ -11,7 +11,7 @@ public class ApplicationDbContext : IdentityDbContext
     {
     }
      public DbSet<Client> Client { get; set; }
-     public DbSet<Adresses> Adresses { get; set; }
+     public DbSet<Addresses> Addresses { get; set; }
      public DbSet<User> User { get; set; }
-     public DbSet<AdressClient> AdressClient { get; set; }
+     public DbSet<AddressClient> AddressClient { get; set; }
 }

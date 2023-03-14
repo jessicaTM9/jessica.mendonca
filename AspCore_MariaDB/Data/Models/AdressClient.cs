@@ -4,13 +4,13 @@ using System.ComponentModel.DataAnnotations.Schema;
 
 namespace AspCore_MariaDB.Data.Models
 {
-    [Table("AdressClient")]
-    public class AdressClient
+    [Table("AddressClient")]
+    public class AddressClient
 {
      [Key]
     public int ClientId { get; set; }
     public Client Clients { get; set; }
-    public int AdressesId { get; set; }
-    public Adresses Adress { get; set; }
+    public int AddressesId { get; set; }
+    public Addresses Address { get; set; }
 }
 }

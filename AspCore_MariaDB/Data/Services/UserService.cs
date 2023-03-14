@@ -4,12 +4,12 @@ using System.ComponentModel.DataAnnotations.Schema;
 
 namespace AspCore_MariaDB.Data.Models;
 
-public class ClientService
+public class UserService
 {
     public readonly ApplicationDbContext _dbContext;
     public User CurrentUser { get; private set; }
 
-    public ClientService(ApplicationDbContext dbContext)
+    public UserService(ApplicationDbContext dbContext)
     {
         _dbContext = dbContext;
     }

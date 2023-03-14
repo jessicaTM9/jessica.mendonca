@@ -1,0 +1,63 @@
+﻿@model Client
+
+<h2>Edit Client</h2>
+
+<form asp-action="Edit">
+    <div class="form-group">
+        <label asp-for="Client.Name" class="control-label"></label>
+        <input asp-for="Client.Name" class="form-control" />
+    </div>
+    <div class="form-group">
+        <label asp-for="Client.DateOfBirth" class="control-label"></label>
+        <input asp-for="Client.DateOfBirth" class="form-control" />
+    </div>
+    <div class="form-group">
+        <label asp-for="Client.CPF" class="control-label"></label>
+        <input asp-for="Client.CPF" class="form-control" />
+    </div>
+    <div class="form-group">
+        <label asp-for="Client.RG" class="control-label"></label>
+        <input asp-for="Client.RG" class="form-control" />
+    </div>
+    <div class="form-group">
+        <label asp-for="Client.Telephone" class="control-label"></label>
+        <input asp-for="Client.Telephone" class="form-control" />
+    </div>
+    
+    <h3>Addresses:</h3>
+
+    <div class="addresses">
+        @for (int i = 0; i < Model.Addresses.Count; i++)
+        {
+            <div class="address">
+                <input type="hidden" asp-for="@Model.Addresses[i].Id" />
+                <div class="form-group">
+                    <label asp-for="@Model.Addresses[i].Street" class="control-label"></label>
+                    <input asp-for="@Model.Addresses[i].Street" class="form-control" />
+                </div>
+                <div class="form-group">
+                    <label asp-for="@Model.Addresses[i].Number" class="control-label"></label>
+                    <input asp-for="@Model.Addresses[i].Number" class="form-control" />
+                </div>
+                <div class="form-group">
+                    <label asp-for="@Model.Addresses[i].City" class="control-label"></label>
+                    <input asp-for="@Model.Addresses[i].City" class="form-control" />
+                </div>
+                <div class="form-group">
+                    <label asp-for="@Model.Addresses[i].State" class="control-label"></label>
+                    <input asp-for="@Model.Addresses[i].State" class="form-control" />
+                </div>
+                <div class="form-group">
+                    <label asp-for="@Model.Addresses[i].ZipCode" class="control-label"></label>
+                    <input asp-for="@Model.Addresses[i].ZipCode" class="form-control" />
+                </div>
+                <hr />
+            </div>
+        }
+    </div>
+
+    <div class="form-group">
+        <button type="submit" class="btn btn-primary">Save</button>
+        <a asp-action="Index" class="btn btn-default">Back to List</a>
+    </div>
+</form>
