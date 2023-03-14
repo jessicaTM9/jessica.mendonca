@@ -18660,6 +18660,11 @@
       "FileKind": "mvc"
     },
     {
+      "FilePath": "c:\\Users\\jessica.mendonca\\AspCore_MariaDB\\Views\\ClientView\\ClienteDel.cshtml",
+      "TargetPath": "Views\\ClientView\\ClienteDel.cshtml",
+      "FileKind": "mvc"
+    },
+    {
       "FilePath": "c:\\Users\\jessica.mendonca\\AspCore_MariaDB\\Views\\Shared\\Error.cshtml",
       "TargetPath": "Views\\Shared\\Error.cshtml",
       "FileKind": "mvc"

@@ -24,6 +24,10 @@ build_metadata.AdditionalFiles.CssScope =
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQ2xpZW50Vmlld1xDbGllbnRBZGQuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
+[C:/Users/jessica.mendonca/AspCore_MariaDB/Views/ClientView/ClienteDel.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQ2xpZW50Vmlld1xDbGllbnRlRGVsLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
 [C:/Users/jessica.mendonca/AspCore_MariaDB/Views/ClientView/ClientEdit.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQ2xpZW50Vmlld1xDbGllbnRFZGl0LmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 

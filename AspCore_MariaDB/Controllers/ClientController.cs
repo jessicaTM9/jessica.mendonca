@@ -5,92 +5,61 @@ using Microsoft.EntityFrameworkCore;
 using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
 
-namespace AspCore_MariaDB.controllers;
-
-[ApiController]
-[Route("api/[controller]")]
-public class ClientController : ControllerBase
+namespace AspCore_MariaDB.Controllers
 {
-    private readonly ClientService _clientService;
-
-    public ClientController(ClientService clientService)
+    [ApiController]
+    [Route("api/[controller]")]
+    public class ClientController : ControllerBase
     {
-        _clientService = clientService;
-    }
+        private readonly ClientService _clientService;
 
-    [HttpGet]
-    public IActionResult GetAllClients()
-    {
-        var clients = _clientService.GetAllClients();
-        return Ok(clients);
-    }
-
-    [HttpGet("{id}")]
-    public IActionResult GetClientById(int id)
-    {
-        var client = _clientService.GetClientById(id);
-        if (client == null)
+        public ClientController(ClientService clientService)
         {
-            return NotFound();
-        }
-        return Ok(client);
-    }
-
-    [HttpPost]
-    public IActionResult AddClient(Client client)
-    {
-        _clientService.AddClient(client);
-        return Ok();
-    }
-
-    [HttpPut("{id}")]
-    public IActionResult UpdateClient(int id, Client client)
-    {
-        if (id != client.Id)
-        {
-            return BadRequest();
+            _clientService = clientService;
         }
 
-        _clientService.UpdateClient(client);
-        return Ok();
+        [HttpGet]
+        public IActionResult GetAllClients()
+        {
+            var clients = _clientService.GetAllClients();
+            return Ok(clients);
+        }
 
-        var clients = _clientService.GetClientById(id);
-    if (client == null)
-    {
-        return NotFound();
-    }
-
-    var clientViewModel = new Client
-    {
-        Id = client.Id,
-        Name = client.Name,
-        Birthdate = client.Birthdate,
-        CPF = client.CPF,
-        RG = client.RG,
-        Telephone = client.Telephone,
-        Addresses = client.Addresses
-            .Select(a => new Addresses
+        [HttpGet("{id}")]
+        public IActionResult GetClientById(int id)
+        {
+            var client = _clientService.GetClientById(id);
+            if (client == null)
             {
-                Id = a.Id,
-                Street = a.Street,
-                Number = a.Number,
-                Complement = a.Complement,
-                Neighborhood = a.Neighborhood,
-                City = a.City,
-                State = a.State,
-                PostalCode = a.PostalCode
-            }).ToList()
-    };
+                return NotFound();
+            }
+            return Ok(client);
+        }
 
-    return (IActionResult)clientViewModel;
+        [HttpPost]
+        public IActionResult AddClient([FromBody] Client client)
+        {
+            _clientService.AddClient(client);
+            return Ok();
+        }
 
+        [HttpPut("{id}")]
+        public IActionResult UpdateClient(int id, [FromBody] Client client)
+        {
+            if (id != client.Id)
+            {
+                return BadRequest();
+            }
+
+            _clientService.UpdateClient(client);
+            return NoContent();
+        }
+
+        [HttpDelete("{id}")]
+        public IActionResult DeleteClient(int id)
+        {
+            _clientService.DeleteClient(id);
+            return Ok();
+        }
     }
-
-    [HttpDelete("{id}")]
-    public IActionResult DeleteClient(int id)
-    {
-        _clientService.DeleteClient(id);
-        return Ok();
-    }
-
 }
